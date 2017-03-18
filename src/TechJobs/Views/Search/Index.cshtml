@@ -32,16 +32,26 @@
 
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-// TODO #2 - Loop over jobs dictionary and display all job fields 
-/* After you have TODO 1 passing data to the view, you need to display the data. 
- * Open up Views/Search/Index.cshtml and create a loop to display each job passed in from the controller. 
- * You should put each job in its own table, with job field per row. 
- * Add the class "job-listing" to each of the tables to get some nice styling, courtesy of Eliot's work!
- * <table class="job-listing"><tbody>
- *   <tr> Words </tr>
- *   <tr> Others </tr>
- * </tbody></table>
- */
+    // TODO #2 - Loop over jobs dictionary and display all job fields
+    /* After you have TODO 1 passing data to the view, you need to display the data.
+     * Open up Views/Search/Index.cshtml and create a loop to display each job passed in from the controller.
+     * You should put each job in its own table, with job field per row.
+     * Add the class "job-listing" to each of the tables to get some nice styling, courtesy of Eliot's work!
+     * <table class="job-listing"><tbody>
+     *   <tr> Words </tr>
+     *   <tr> Others </tr>
+     * </tbody></table>
+     */
 
+    @foreach (var job in ViewBag.jobs)
+        {
+            <table class="job-listing"><tbody>
+            @foreach (var feild in job)
+                {
+                <tr> <td>@feild.Key </td> <td>@feild.Value </td> </tr>
+                }
+            </tbody></table>
+        }
 
 }
+    
