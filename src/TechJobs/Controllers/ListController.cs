@@ -9,6 +9,8 @@ namespace TechJobs.Controllers
     {
         internal static Dictionary<string, string> columnChoices = new Dictionary<string, string>();
 
+        public static dynamic value { get; internal set; }
+
         // This is a "static constructor" which can be used
         // to initialize static members of a class
         static ListController() 
