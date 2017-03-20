@@ -16,20 +16,20 @@
      *  the name of the jobs list passed in from the controller, which may or may not
      *  be different, depending on how you structured your code.
      */
+    // <tr> <td>@field.Key </td> <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@field.Key" asp-route-value="@field.Value">@field.Value</a></td></tr>
 
     foreach (var job in ViewBag.jobs)
     {
-        <table class="job-listing">
-            <tbody>
-                @foreach (var field in job)
-                {
-                    <tr> <td>@field.Key </td> <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@field.Key" asp-route-value="@field.Value">@field.Value</a></td></tr>              
-                    <tr> <td>@field.Key </td> <td>@field.Value </td> </tr>
-                }
-            </tbody>
-        </table>
-        <hr />
-    }
+   <table class="job-listing">
+       <tbody>
+           @foreach (var field in job)
+           {
+               <tr> <td>@field.Key </td> <td>@field.Value </td> </tr>
+           }
+       </tbody>
+   </table>
+   <hr />
+}
 
 }
     
