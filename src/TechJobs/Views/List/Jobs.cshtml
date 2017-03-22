@@ -3,33 +3,52 @@
 <h3>@ViewBag.jobs.Count Result(s)</h3>
 
 
-@{
-    // TODO #3 - Use the same list display from Views/Search/Index.cshtml
-    /*
-     *  DISPLAY LIST OF ALL JOBS
-     *  Recall that the page at the path /List/Values?column=all doesn't display
-     *  any results. This page needs to display full job listings, just like the search
-     *  results page. Add code to the appropriate view template so that this page
-     *  displays jobs with the same structure as the search results.
-     *
-     *  You can reuse code from the search results page, but make sure you account for
-     *  the name of the jobs list passed in from the controller, which may or may not
-     *  be different, depending on how you structured your code.
-     */
-    // <tr> <td>@field.Key </td> <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@field.Key" asp-route-value="@field.Value">@field.Value</a></td></tr>
+@*@{
+        // TODO #3 - Use the same list display from Views/Search/Index.cshtml
+        
+}*@
 
-    foreach (var job in ViewBag.jobs)
-    {
-   <table class="job-listing">
-       <tbody>
-           @foreach (var field in job)
-           {
-               <tr> <td>@field.Key </td> <td>@field.Value </td> </tr>
-           }
-       </tbody>
-   </table>
-   <hr />
+@foreach (var job in ViewBag.jobs)
+{
+    <table class="job-listing">
+        <tbody>
+            @foreach (var field in job)
+            {
+                <tr>
+                    <td>@field.Key </td>
+                    @if (field.Key == "name")
+                    {
+                        <td>@field.Value</td>
+
+                    }
+                    else
+                    {
+                        <td>
+                            <a asp-controller="List" asp-action="Jobs" asp-route-column="@field.Key"
+                               asp-route-value="@field.Value">@field.Value</a>
+                        </td>
+
+                    }
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    @*<table class="job-listing">
+    <tbody>
+        @foreach (var field in job)
+        {
+            <tr>
+                <td>@field.Key </td>
+                @if (field.Key != "name")
+                {
+                    <td> @field.Value </td></tr>
+
+                }
+                    
+        }
+    </tbody>
+    </table>*@
 }
 
-}
-    
+
